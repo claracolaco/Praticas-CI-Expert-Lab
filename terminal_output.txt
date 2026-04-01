@@ -1,0 +1,9 @@
+reboot
+su -
+mkdir -p workspace/labs/s1
+cd workspace/labs/s1
+wich git
+mkdir -p workspace/labs/s1
+cd workspace/labs/s1
+which git
+sudo dnf install git

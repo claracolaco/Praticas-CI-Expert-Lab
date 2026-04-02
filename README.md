@@ -1,71 +1,40 @@
+# Praticas-CI-Expert-Lab
 
-# Prática de CI Expert Lab
+Repositório para armazenar as atividades práticas do laboratório do CI Expert.
 
-## Objetivo da Atividade
-Essa atividade tem como objetivo aplicar os conceitos de **Design Verification** utilizando **SystemVerilog** e **Git**.
+## Organização do repositório
 
-## Comandos Usados e suas Funções
+- `scripts/`  
+  Contém scripts simples de shell usados nas práticas iniciais.
 
-### 1. Criando a estrutura do projeto com `gen-prj.sh`
-Para criar o projeto `hello`, usei o script `gen-prj.sh`:
-```bash
-./gen-prj.sh hello
-```
-**Função:** Criar a estrutura de diretórios e arquivos para o projeto `hello`.
+- `gen-prj.sh`  
+  Script em shell para gerar automaticamente a estrutura de um projeto.
 
-### 2. Editando o arquivo `tb_top.sv`
-Depois, editei o arquivo `tb_top.sv` para instanciar o DUT e realizar a simulação. O código foi modificado para o seguinte:
-```systemverilog
-module tb_top();
-  logic a, b, c;
-  dut uu_dut (
-    .a(a),
-    .b(b),
-    .c(c)
-  );
+- `prj/hello/`  
+  Projeto criado a partir do script `gen-prj.sh`.
 
-  initial begin
-    $display("a b | c");
-    $display("-----");
-    a = 0; b = 0; #1ns;
-    $display("%0d %0d | %0d", a, b, c);
-    a = 0; b = 1; #1ns;
-    $display("%0d %0d | %0d", a, b, c);
-    a = 1; b = 0; #1ns;
-    $display("%0d %0d | %0d", a, b, c);
-    a = 1; b = 1; #1ns;
-    $display("%0d %0d | %0d", a, b, c);
-    $finish;
-  end
-endmodule
-```
-**Função:** Criar um testbench para simular as combinações de entrada e saída.
+- `prj/hello/rtl/`  
+  Contém a implementação RTL do DUT em SystemVerilog.
 
-### 3. Comandos Git
+- `prj/hello/tb/`  
+  Contém o testbench em SystemVerilog para verificar o DUT.
 
-#### a. Inicializando o repositório Git
-```bash
-git init
-```
-**Função:** Inicializar o repositório Git no diretório do projeto.
+- `prj/hello/docs/`  
+  Pasta destinada à documentação do projeto.
 
-#### b. Adicionando e commitando os arquivos
-```bash
-git add .
-git commit -m "feat: cria estrutura de projeto hello com testbench"
-```
-**Função:** Adicionar os arquivos ao Git e fazer o commit.
+- `terminal_output.txt`  
+  Arquivo com o histórico/comandos usados no terminal durante a atividade.
 
-#### c. Enviando para o GitHub
-```bash
-git remote add origin https://github.com/claracolaco/Praticas-CI-Expert-Lab.git
-git push -u origin gen-prj
-```
-**Função:** Conectar o repositório local ao GitHub e enviar os arquivos.
+## O que foi feito na atividade
 
-### 4. Comandos de simulação (para quando no laboratório)
-```bash
-vcs -sverilog tb_top.sv ../rtl/dut.sv
-./simv
-```
-**Função:** Compilar e simular os arquivos SystemVerilog.
+Nesta atividade foram praticados:
+- comandos básicos de Linux;
+- inicialização e uso básico de Git;
+- criação e uso de branches;
+- criação de scripts shell;
+- criação de estrutura de projeto com script;
+- criação inicial de arquivos SystemVerilog para DUT e testbench.
+
+## Branch usada
+
+O desenvolvimento principal desta atividade foi feito na branch `gen-prj`.
